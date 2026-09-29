@@ -28,15 +28,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { ContactModal } from "./ContactModal";
 import logoAsset from "@/assets/otherlogic-logo.png";
-import restaurantImage from "@/assets/restaurant-operations.jpg";
-import kitchenImage from "@/assets/kitchen-operations.jpg";
+import experienceImage from "@/assets/hero-experience.jpg";
+import softwareHouseImage from "@/assets/hero-software-house.jpg";
+import aiImage from "@/assets/hero-ai.jpg";
 import connectedImage from "@/assets/connected-restaurant.jpg";
 import amerLogo from "@/assets/amer-group.png";
 import jwMarriottLogo from "@/assets/jw-marriott.webp";
 import movenpickLogo from "@/assets/movenpick-group.webp";
 
 const nav = ["Solutions", "Industries", "Why OtherLogic", "Projects", "About", "Contact"];
-const markets = ["Egypt", "Saudi Arabia", "UAE", "Canada", "USA", "New Zealand", "Yemen", "Iraq", "Netherlands"];
+const markets = ["Egypt", "Saudi Arabia", "UAE", "Canada", "USA", "Spain", "Yemen", "Iraq", "Netherlands"];
 const clients = ["AMER Group", "Arabic Engineering Office", "Ajman International Urban Planning Conference", "American University in Cairo", "Citi", "DB Philosophy", "Design Build SAE", "JW Marriott", "DSV", "ETUF", "Elsewedy Electric", "Electro LED", "Ghibli Travel", "German Medical Solutions", "Glory Technology", "Gulf Air", "InterContinental Hotels & Resorts", "HTC", "Mövenpick", "Nisantasi", "Prego", "Texas Global", "UTI", "United Submarines", "Sequoia", "Taqnia Consulting"];
 
 const operations = [
@@ -93,9 +94,9 @@ function Hero({ onContact }: { onContact: () => void }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const smooth = useSpring(scrollYProgress, { stiffness: 70, damping: 22 });
   const scenes = [
-    { eyebrow: "22+ YEARS OF EXPERIENCE", title: <>22 YEARS<br />BEHIND THE<br />BUSINESS.</>, copy: "For more than two decades, OtherLogic has helped businesses turn complex operations into connected digital experiences.", image: restaurantImage },
-    { eyebrow: "THE CONNECTED OPERATION", title: <>FROM ORDER<br />TO OPERATION.</>, copy: "Every order is part of a bigger operation. Every kitchen, table, inventory process and customer interaction needs to work together.", image: kitchenImage },
-    { eyebrow: "PRACTICAL TECHNOLOGY. BUILT TO EVOLVE.", title: <>BUILT FOR<br />WHAT’S NEXT.</>, copy: "From software and mobile applications to digital commerce, hosting, automation and digital growth — we build practical technology that evolves with your business.", image: connectedImage },
+    { eyebrow: "22+ YEARS OF EXPERIENCE", title: <>22 YEARS<br />BEHIND THE<br />BUSINESS.</>, copy: "For more than two decades, OtherLogic has helped businesses turn complex operations into connected digital experiences.", image: experienceImage, alt: "Developer building software at a desktop workstation" },
+    { eyebrow: "ONE SOFTWARE HOUSE. MANY INDUSTRIES.", title: <>FROM IDEA<br />TO WORKING<br />SOFTWARE.</>, copy: "We design, build and run web platforms, mobile apps and custom systems for businesses across hospitality, finance, education, travel and more.", image: softwareHouseImage, alt: "Developer writing code on a laptop" },
+    { eyebrow: "THE NEXT CHAPTER: AI", title: <>BUILT FOR<br />THE AI ERA.</>, copy: "We’re moving our clients forward with AI — bringing intelligent assistants, automation and predictive insights into the software their business already runs on.", image: aiImage, alt: "Artificial intelligence concept of a digital brain on a circuit board" },
   ];
   return <section ref={ref} id="top" className="relative h-[300vh] bg-ink text-foreground">
     <div className="sticky top-0 h-dvh overflow-hidden">
@@ -105,15 +106,16 @@ function Hero({ onContact }: { onContact: () => void }) {
         const scale = useTransform(smooth, [start, end], [1.08, 1]);
         const y = useTransform(smooth, [start, end], [60, -30]);
         return <motion.div key={scene.eyebrow} style={{ opacity }} className="absolute inset-0">
-          <motion.img style={{ scale }} src={scene.image} alt={i === 0 ? "Restaurant service connecting guests, staff, point of sale and kitchen operations" : i === 1 ? "Restaurant kitchen team coordinating operational workflow" : "Connected restaurant environment with mobile and management technology"} width={1920} height={1280} className="h-full w-full object-cover" />
+          <motion.img style={{ scale }} src={scene.image} alt={scene.alt} width={1920} height={1280} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--ink)_0%,color-mix(in_oklab,var(--ink)_78%,transparent)_40%,color-mix(in_oklab,var(--ink)_12%,transparent)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(0deg,var(--ink)_0%,transparent_38%)]" />
           <motion.div style={{ y }} className="absolute inset-x-0 top-[18%] mx-auto max-w-[1480px] px-5 lg:top-[20%] lg:px-8">
             <p className="eyebrow mb-7 text-primary">{scene.eyebrow}</p><h1 className="display-type max-w-5xl text-foreground">{scene.title}</h1>
             <p className="mt-7 max-w-xl text-base leading-7 text-foreground/72 lg:ml-[38%] lg:text-lg">{scene.copy}</p>
             {i === 0 && <div className="mt-8 flex gap-8 lg:ml-[38%]">{[["22+", "Years Experience"], ["150+", "Clients"], ["250+", "Projects"]].map(([n, l]) => <div key={l}><strong className="text-2xl text-primary">{n}</strong><span className="mt-1 block text-[10px] uppercase tracking-[0.14em] text-foreground/55">{l}</span></div>)}</div>}
-            {i === 1 && <div className="mt-8 flex max-w-3xl flex-wrap gap-x-8 gap-y-2 lg:ml-[38%]">{["CONNECT THE FRONT OF HOUSE.", "CONNECT THE BACK OF HOUSE.", "CONNECT THE BUSINESS."].map(x => <span key={x} className="text-xs font-bold text-primary">{x}</span>)}</div>}
-            {i === 2 && <div className="mt-8 flex flex-wrap gap-3 lg:ml-[38%]"><Button asChild variant="brand" size="xl"><a href="#solutions">Explore Our Solutions <ArrowRight /></a></Button><Button variant="brandOutline" size="xl" onClick={onContact}>Let&apos;s Talk</Button></div>}
+            {i === 1 && <div className="mt-8 flex max-w-3xl flex-wrap gap-x-8 gap-y-2 lg:ml-[38%]">{["DESIGN IT.", "BUILD IT.", "RUN IT.", "EVOLVE IT."].map(x => <span key={x} className="text-xs font-bold text-primary">{x}</span>)}</div>}
+            {i === 2 && <div className="mt-6 flex flex-wrap gap-2 lg:ml-[38%]">{["AI Integration", "Intelligent Automation", "AI Assistants", "Predictive Analytics"].map(x => <span key={x} className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-ink/40 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[.1em] text-primary backdrop-blur-sm"><Bot className="h-3.5 w-3.5" />{x}</span>)}</div>}
+            {i === 2 && <div className="mt-8 flex flex-wrap gap-3 lg:ml-[38%]"><Button asChild variant="brand" size="xl"><a href="#solutions">Explore AI Solutions <ArrowRight /></a></Button><Button variant="brandOutline" size="xl" onClick={onContact}>Let&apos;s Talk</Button></div>}
           </motion.div>
         </motion.div>;
       })}
