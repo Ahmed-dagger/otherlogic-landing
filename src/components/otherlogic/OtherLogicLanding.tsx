@@ -94,9 +94,9 @@ function Hero({ onContact }: { onContact: () => void }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const smooth = useSpring(scrollYProgress, { stiffness: 70, damping: 22 });
   const scenes = [
-    { eyebrow: "22+ YEARS OF EXPERIENCE", title: <>22 YEARS<br />BEHIND THE<br />BUSINESS.</>, copy: "For more than two decades, OtherLogic has helped businesses turn complex operations into connected digital experiences.", image: experienceImage, alt: "Developer building software at a desktop workstation" },
-    { eyebrow: "ONE SOFTWARE HOUSE. MANY INDUSTRIES.", title: <>FROM IDEA<br />TO WORKING<br />SOFTWARE.</>, copy: "We design, build and run web platforms, mobile apps and custom systems for businesses across hospitality, finance, education, travel and more.", image: softwareHouseImage, alt: "Developer writing code on a laptop" },
-    { eyebrow: "THE NEXT CHAPTER: AI", title: <>BUILT FOR<br />THE AI ERA.</>, copy: "We’re moving our clients forward with AI — bringing intelligent assistants, automation and predictive insights into the software their business already runs on.", image: aiImage, alt: "Artificial intelligence concept of a digital brain on a circuit board" },
+    { eyebrow: "22+ YEARS OF EXPERIENCE", title: <>22 YEARS<br />BEHIND THE<br />BUSINESS.</>, copy: "For more than two decades, OtherLogic has helped businesses turn complex operations into connected digital experiences.", image: experienceImage, alt: "Developer writing code at a desktop workstation" },
+    { eyebrow: "ONE SOFTWARE HOUSE. MANY INDUSTRIES.", title: <>FROM IDEA<br />TO WORKING<br />SOFTWARE.</>, copy: "We design, build and run web platforms, mobile apps and custom systems for businesses across hospitality, finance, education, travel and more.", image: softwareHouseImage, alt: "Idea and operation coins representing concept turning into execution" },
+    { eyebrow: "THE NEXT CHAPTER: AI", title: <>BUILT FOR<br />THE AI ERA.</>, copy: "We’re moving our clients forward with AI — bringing intelligent assistants, automation and predictive insights into the software their business already runs on.", image: aiImage, alt: "Glowing digital brain on a circuit board representing artificial intelligence" },
   ];
   return <section ref={ref} id="top" className="relative h-[300vh] bg-ink text-foreground">
     <div className="sticky top-0 h-dvh overflow-hidden">
